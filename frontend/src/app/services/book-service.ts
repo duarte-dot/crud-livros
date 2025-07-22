@@ -1,10 +1,11 @@
 import { Injectable, signal } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Book } from '../types/book.model';
+import { environment } from '../../environments/environment.prod';
 
 @Injectable({ providedIn: 'root' })
 export class BookService {
-  private apiUrl = '/api/books';
+  private apiUrl = `${environment.apiUrl}/books`;
 
   books = signal<Book[]>([]);
   selectedBook = signal<Book | null>(null);
